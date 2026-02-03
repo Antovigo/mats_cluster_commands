@@ -42,7 +42,7 @@ cd ~/spd
 
 # Additional evals
 uv run spd-eval \
-	"~/spd_out/spd/pythia/opening/sweep impmin 0.0001/model_20000.pth" \
+	"/mnt/nw/home/a.vigouroux/spd_out/spd/pythia/opening/sweep impmin 0.0001/model_20000.pth" \
 	"spd/experiments/lm/additional_evals.yaml"
 
 echo "Job finished at: $(date)"
