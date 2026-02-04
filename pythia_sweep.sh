@@ -8,7 +8,7 @@
 #SBATCH --cpus-per-task=4             # Request 4 CPUs (always a good practice)
 #SBATCH --mem=32GB                    # Request 16GB of memory
 #SBATCH --gres=gpu:1                  # Request 1 L40 GPU
-#SBATCH --time=24:00:00               # Request 1 hour runtime (format: HH:MM:SS or D-HH:MM:SS)
+#SBATCH --time=04:00:00               # Request 1 hour runtime (format: HH:MM:SS or D-HH:MM:SS)
 
 # --- To use the debug QoS, uncomment the line below ---
 # -- It has a 2-hour time limit and allows max 1 GPU.
@@ -38,10 +38,10 @@ cd ~/spd
 # uv run spd/experiments/mem/train_mem.py
 
 # Pythia transformer decomposition
-# uv run spd/experiments/lm/lm_decomposition.py spd/experiments/lm/pythia_70m_targeted_config.yaml
+uv run spd/experiments/lm/lm_decomposition.py spd/experiments/lm/pythia_70m_targeted_config.yaml
 
 # Sweep
-uv run spd/scripts/run_variations.py spd/experiments/lm/lm_decomposition.py spd/experiments/lm/pythia_70m_targeted_config.yaml spd/experiments/lm/experimental_plan.yaml
+#uv run spd/scripts/run_variations.py spd/experiments/lm/lm_decomposition.py spd/experiments/lm/pythia_70m_targeted_config.yaml spd/experiments/lm/experimental_plan.yaml
 
 echo "Job finished at: $(date)"
 
