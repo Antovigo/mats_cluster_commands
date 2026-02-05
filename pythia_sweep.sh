@@ -8,7 +8,7 @@
 #SBATCH --cpus-per-task=4             # Request 4 CPUs (always a good practice)
 #SBATCH --mem=32GB                    # Request 16GB of memory
 #SBATCH --gres=gpu:1                  # Request 1 L40 GPU
-#SBATCH --time=12:00:00               # Request 1 hour runtime (format: HH:MM:SS or D-HH:MM:SS)
+#SBATCH --time=6:00:00               # Request 1 hour runtime (format: HH:MM:SS or D-HH:MM:SS)
 
 # --- To use the debug QoS, uncomment the line below ---
 # -- It has a 2-hour time limit and allows max 1 GPU.
