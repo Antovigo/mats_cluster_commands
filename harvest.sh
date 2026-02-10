@@ -1,6 +1,8 @@
 #!/bin/bash
 
-#SBATCH --job-name=spd-harvest                                                                                                           #SBATCH --output=harvest_output_%j.log # Log file for stdout/stderr (%j = Job ID)
+#SBATCH --job-name=spd-harvest
+#SBATCH --output=harvest_output_%j.log
+
 #SBATCH --partition=compute           # The partition is always 'compute'
 #SBATCH --nodes=1                     # Request one node
 #SBATCH --ntasks=1                    # Request one task 
