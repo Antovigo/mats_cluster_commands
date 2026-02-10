@@ -33,13 +33,8 @@ echo
 
 cd ~/spd
 
-#SBATCH --partition=YOUR_PARTITION                                              
-#SBATCH --gpus-per-node=1  
-#SBATCH --array=1-8  
-#SBATCH --time=24:00:00  
- 
-RANK=$((SLURM_ARRAY_TASK_ID - 1))  
-WORLD_SIZE=$SLURM_ARRAY_TASK_COUNT  
+RANK=$((SLURM_ARRAY_TASK_ID - 1))
+WORLD_SIZE=$SLURM_ARRAY_TASK_COUNT
 
 RUN_ID="wandb:antvig-pibbss/spd/runs/s-62ac185c"
 
