@@ -32,7 +32,7 @@ echo
 # echo "GPU info:"
 # nvidia-smi
 
-cd ~/spd
+# cd ~/spd
 
 # Pythia transformer training
 # uv run spd/experiments/mem/train_mem.py
@@ -41,8 +41,8 @@ cd ~/spd
 #uv run spd/experiments/lm/lm_decomposition.py spd/experiments/lm/pythia_70m_targeted_config.yaml
 
 # Sweep
-uv run spd/scripts/run_variations.py \
-       spd/experiments/lm/lm_decomposition.py \
+uv run spd/spd/scripts/run_variations.py \
+       spd/spd/experiments/lm/lm_decomposition.py \
        configs/pythia_seeds/pythia_70m_targeted_config.yaml \
        configs/pythia_seeds/experimental_plan.yaml
 

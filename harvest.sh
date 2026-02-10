@@ -45,7 +45,7 @@ uv run python -m spd.harvest.scripts.run \
     --n_batches 1000 \
     --rank $RANK \
     --world_size $WORLD_SIZE \
-    --nontarget
+    --use_nontarget
 
 echo "Job finished at: $(date)"
 
