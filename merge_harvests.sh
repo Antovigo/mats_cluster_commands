@@ -43,14 +43,14 @@ RUN_ID="wandb:antvig-pibbss/spd/runs/s-62ac185c"
 uv run python -m spd.harvest.scripts.run \  
     $RUN_ID \
     --merge \
-    --nontarget
+    --use_nontarget
 
 # uv run python -m spd.harvest.scripts.run \
 #     $RUN_ID \
 #     --n_batches 1000 \
 #     --rank $RANK \
 #     --world_size $WORLD_SIZE \
-#     --nontarget
+#     --use_nontarget
 
 echo "Job finished at: $(date)"
 
