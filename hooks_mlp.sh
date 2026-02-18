@@ -38,14 +38,14 @@ cd ~/SPD/spd
 # uv run spd/experiments/mem/train_mem.py
 
 # Pythia transformer decomposition
-# uv run spd/experiments/lm/lm_decomposition.py \
-#        /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/pythia_70m_targeted_hooks_input_config.yaml
+uv run spd/experiments/lm/lm_decomposition.py \
+       /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/pythia_70m_targeted_hooks_global_config.yaml
 
 # uv run spd/experiments/lm/lm_decomposition.py \
 #        /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/pythia_70m_targeted_hooks_output_config.yaml
 
-uv run spd/experiments/lm/lm_decomposition.py \
-       /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/ss_gpt2_simple-1L_attention_patterns_input_config.yaml
+# uv run spd/experiments/lm/lm_decomposition.py \
+#        /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/ss_gpt2_simple-1L_attention_patterns_input_config.yaml
 
 # residMLP2 decomposition
 # uv run spd/experiments/resid_mlp/resid_mlp_decomposition.py \
