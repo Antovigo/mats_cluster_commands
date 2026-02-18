@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#SBATCH --job-name=pythia_hook   # Name for your job
-#SBATCH --output=pythia_hook_output_%j.log # Log file for stdout/stderr (%j = Job ID)
+#SBATCH --job-name=gpt2_1L   # Name for your job
+#SBATCH --output=gpt2_1L_output_%j.log # Log file for stdout/stderr (%j = Job ID)
 #SBATCH --partition=compute           # The partition is always 'compute'
 #SBATCH --nodes=1                     # Request one node
 #SBATCH --ntasks=1                    # Request one task 
@@ -38,11 +38,14 @@ cd ~/SPD/spd
 # uv run spd/experiments/mem/train_mem.py
 
 # Pythia transformer decomposition
-uv run spd/experiments/lm/lm_decomposition.py \
-       /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/pythia_70m_targeted_hooks_input_config.yaml
+# uv run spd/experiments/lm/lm_decomposition.py \
+#        /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/pythia_70m_targeted_hooks_input_config.yaml
+
+# uv run spd/experiments/lm/lm_decomposition.py \
+#        /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/pythia_70m_targeted_hooks_output_config.yaml
 
 uv run spd/experiments/lm/lm_decomposition.py \
-       /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/pythia_70m_targeted_hooks_output_config.yaml
+       /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/ss_gpt2_simple-1L_attention_patterns_input_config.yaml
 
 # residMLP2 decomposition
 # uv run spd/experiments/resid_mlp/resid_mlp_decomposition.py \
