@@ -43,7 +43,7 @@ cd ~/SPD/experiments
 
 # residMLP2 decomposition
 uv run spd/experiments/resid_mlp/resid_mlp_decomposition.py \
-       /mnt/nw/home/a.vigouroux/configs/hooks_mlp/resid_mlp2_global_shared_mlp_config.yaml
+       /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/resid_mlp2_global_shared_mlp_config.yaml
 #
 # Sweep
 # uv run spd/scripts/run_variations.py \
