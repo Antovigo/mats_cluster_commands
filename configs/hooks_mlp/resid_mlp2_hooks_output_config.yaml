@@ -5,12 +5,13 @@ wandb_run_name: null
 wandb_run_name_prefix: ""
 
 # --- General ---
+output_dir_name: 'hooks_mlp/resid_mlp2/hooks_mlp_output (512, IM {loss_metric_configs[ImportanceMinimalityLoss].coeff})'
 seed: 0
 n_mask_samples: 1
 ci_config:
   mode: global
   fn_type: hooks_mlp
-  hidden_dims: [256]
+  hidden_dims: [512]
   ci_hooks:
     - pattern: "layers.*.mlp_in"
       position: output
@@ -27,7 +28,7 @@ use_delta_component: true
 # --- Loss config ---
 loss_metric_configs:
   - classname: "ImportanceMinimalityLoss"
-    coeff: 0.0002
+    coeff: 0.00003
     pnorm: 2.0
     beta: 0
   - classname: "StochasticReconSubsetLoss"

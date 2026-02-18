@@ -42,9 +42,14 @@ cd ~/SPD/experiments
 #        /mnt/nw/home/a.vigouroux/configs/pythia_seeds/pythia_70m_targeted_config.yaml
 
 # residMLP2 decomposition
+# uv run spd/experiments/resid_mlp/resid_mlp_decomposition.py \
+       # /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/resid_mlp2_global_shared_mlp_config.yaml
+
 uv run spd/experiments/resid_mlp/resid_mlp_decomposition.py \
-       /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/resid_mlp2_global_shared_mlp_config.yaml
-#
+       /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/resid_mlp2_hooks_input_config.yaml
+
+uv run spd/experiments/resid_mlp/resid_mlp_decomposition.py \
+       /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/resid_mlp2_hooks_output_config.yaml
 # Sweep
 # uv run spd/scripts/run_variations.py \
 #        spd/experiments/lm/lm_decomposition.py \
