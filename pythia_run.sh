@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#SBATCH --job-name=spd   # Name for your job
-#SBATCH --output=run_output_%j.log # Log file for stdout/stderr (%j = Job ID)
+#SBATCH --job-name=pythia_run   # Name for your job
+#SBATCH --output=pythia_run_output_%j.log # Log file for stdout/stderr (%j = Job ID)
 #SBATCH --partition=compute           # The partition is always 'compute'
 #SBATCH --nodes=1                     # Request one node
 #SBATCH --ntasks=1                    # Request one task 
@@ -32,7 +32,7 @@ echo
 # echo "GPU info:"
 # nvidia-smi
 
-cd ~/spd
+cd ~/SPD/spd
 wandb offline
 
 # Pythia transformer training
@@ -40,7 +40,7 @@ wandb offline
 
 # Pythia transformer decomposition
 uv run spd/experiments/lm/lm_decomposition.py \
-       /mnt/nw/home/a.vigouroux/configs/pythia_seeds/pythia_70m_targeted_config.yaml
+       /mnt/nw/home/a.vigouroux/batch_commands/configs/pythia_seeds/pythia_70m_targeted_config.yaml
 
 # Sweep
 # uv run spd/scripts/run_variations.py \
