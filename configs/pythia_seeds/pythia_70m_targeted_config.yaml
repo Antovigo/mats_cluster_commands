@@ -8,7 +8,7 @@ wandb_run_name: null
 wandb_run_name_prefix: ""
 
 # --- General ---
-output_dir_name: "pythia/seeds/closing seed {seed}"
+output_dir_name: "pythia/seeds/combined seed {seed} (re-run)"
 seed: 0
 n_mask_samples: 1
 ci_config:
@@ -112,8 +112,8 @@ eval_metric_configs:
   - classname: TargetedCEandKL
     rounding_threshold: 0.0
   - classname: WeightMagnitude
-  # - classname: StochasticHiddenActsReconLoss
-  #   coeff: null
+  - classname: StochasticHiddenActsReconLoss
+  - classname: StochasticAttentionPatternsReconLoss
 
 # --- Pretrained model info ---
 pretrained_model_class: transformers.GPTNeoXForCausalLM
@@ -125,7 +125,7 @@ tokenizer_name: EleutherAI/pythia-70m-deduped
 task_config:
   task_name: lm
   max_seq_len: 2
-  prompts_file: spd/experiments/lm/prompts/code_syntax_closing.txt
+  prompts_file: spd/experiments/lm/prompts/code_syntax_combined.txt
 
 # --- Targeted Mode (Non-target data from The Pile) ---
 nontarget_task_config:
