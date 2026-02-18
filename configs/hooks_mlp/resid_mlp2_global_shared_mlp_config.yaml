@@ -5,13 +5,13 @@ wandb_run_name: null
 wandb_run_name_prefix: ""
 
 # --- General ---
-output_dir_name: 'hooks_mlp/resid_mlp2/global_shared_mlp (IM {loss_metric_configs[ImportanceMinimalityLoss].coeff})'
+output_dir_name: 'hooks_mlp/resid_mlp2/global_shared_mlp (512, IM {loss_metric_configs[ImportanceMinimalityLoss].coeff})'
 seed: 0
 n_mask_samples: 1
 ci_config:
   mode: global
   fn_type: global_shared_mlp
-  hidden_dims: [256]
+  hidden_dims: [512]
 sigmoid_type: leaky_hard
 module_info:
   - module_pattern: "layers.*.mlp_in"
