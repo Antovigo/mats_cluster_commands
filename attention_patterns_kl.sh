@@ -1,15 +1,14 @@
 #!/bin/bash
 
-#SBATCH --job-name=spd-harvest
-#SBATCH --output=harvest_output_%j.log
-
+#SBATCH --job-name=gpt2_2L   # Name for your job
+#SBATCH --output=gpt2_2L_output_%j.log # Log file for stdout/stderr (%j = Job ID)
 #SBATCH --partition=compute           # The partition is always 'compute'
 #SBATCH --nodes=1                     # Request one node
 #SBATCH --ntasks=1                    # Request one task 
 #SBATCH --cpus-per-task=4             # Request 4 CPUs (always a good practice)
 #SBATCH --mem=32GB                    # Request 16GB of memory
 #SBATCH --gres=gpu:1                  # Request 1 L40 GPU
-#SBATCH --time=01:00:00               # Request 1 hour runtime (format: HH:MM:SS or D-HH:MM:SS)
+#SBATCH --time=12:00:00               # Request 1 hour runtime (format: HH:MM:SS or D-HH:MM:SS)
 
 # --- To use the debug QoS, uncomment the line below ---
 # -- It has a 2-hour time limit and allows max 1 GPU.
@@ -35,22 +34,21 @@ echo
 
 cd ~/spd
 
-RANK=$((SLURM_ARRAY_TASK_ID - 1))
-WORLD_SIZE=$SLURM_ARRAY_TASK_COUNT
+# Pythia transformer training
+# uv run spd/experiments/mem/train_mem.py
 
-RUN_ID="wandb:antvig-pibbss/spd/runs/s-62ac185c"
+# Pythia transformer decomposition
+# uv run spd/experiments/lm/lm_decomposition.py \
+#        /mnt/nw/home/a.vigouroux/configs/pythia_seeds/pythia_70m_targeted_config.yaml
 
-uv run python -m spd.harvest.scripts.run \  
-    $RUN_ID \
-    --merge \
-    --use_nontarget
+# SS GPT2 2L decomposition
+uv run spd/experiments/lm/lm_decomposition.py spd/experiments/lm/ss_gpt2_simple-2L.yaml
 
-# uv run python -m spd.harvest.scripts.run \
-#     $RUN_ID \
-#     --n_batches 1000 \
-#     --rank $RANK \
-#     --world_size $WORLD_SIZE \
-#     --use_nontarget
+# Sweep
+# uv run spd/scripts/run_variations.py \
+#        spd/experiments/lm/lm_decomposition.py \
+#        /mnt/nw/home/a.vigouroux/configs/pythia_seeds/pythia_70m_targeted_config.yaml \
+#        /mnt/nw/home/a.vigouroux/configs/pythia_seeds/experimental_plan.yaml
 
 echo "Job finished at: $(date)"
 
