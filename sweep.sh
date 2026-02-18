@@ -33,7 +33,7 @@ echo
 # nvidia-smi
 
 cd ~/spd
-wandb offline
+uv run wandb offline
 
 # Pythia transformer training
 # uv run spd/experiments/mem/train_mem.py

@@ -8,7 +8,7 @@ wandb_run_name: null
 wandb_run_name_prefix: ""
 
 # --- General ---
-output_dir_name: "pythia/seeds/combined seed {seed} (re-run)"
+output_dir_name: "pythia/seeds/combined seed {seed} (re-run, no act evals)"
 seed: 0
 n_mask_samples: 1
 ci_config:
@@ -112,8 +112,8 @@ eval_metric_configs:
   - classname: TargetedCEandKL
     rounding_threshold: 0.0
   - classname: WeightMagnitude
-  - classname: StochasticHiddenActsReconLoss
-  - classname: StochasticAttentionPatternsReconLoss
+  # - classname: StochasticHiddenActsReconLoss
+  # - classname: StochasticAttentionPatternsReconLoss
 
 # --- Pretrained model info ---
 pretrained_model_class: transformers.GPTNeoXForCausalLM
