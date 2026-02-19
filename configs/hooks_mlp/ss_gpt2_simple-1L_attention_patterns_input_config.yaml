@@ -13,18 +13,18 @@ ci_config:
   hidden_dims: [550]
 sigmoid_type: "leaky_hard"
 module_info:
-  - module_pattern: "h.*.mlp.c_fc"
-    C: 650
-  - module_pattern: "h.*.mlp.down_proj"
-    C: 650
+  # - module_pattern: "h.*.mlp.c_fc"
+  #   C: 650
+  # - module_pattern: "h.*.mlp.down_proj"
+  #   C: 650
   - module_pattern: "h.*.attn.q_proj"
     C: 650
   - module_pattern: "h.*.attn.k_proj"
     C: 650
   - module_pattern: "h.*.attn.v_proj"
     C: 650
-  - module_pattern: "h.*.attn.o_proj"
-    C: 650
+  # - module_pattern: "h.*.attn.o_proj"
+  #   C: 650
 identity_module_info: null
 use_delta_component: true
 loss_metric_configs:

@@ -70,6 +70,7 @@ batch_size: 256
 nontarget_batch_size: 256
 eval_batch_size: 256
 nontarget_eval_batch_size: 256
+autocast_bf16: false
 
 steps: 20000
 gradient_accumulation_steps: 1
