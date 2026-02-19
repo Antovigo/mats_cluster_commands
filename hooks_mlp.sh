@@ -1,14 +1,14 @@
 #!/bin/bash
 
-#SBATCH --job-name=gpt2_1L   # Name for your job
-#SBATCH --output=gpt2_1L_output_%j.log # Log file for stdout/stderr (%j = Job ID)
+#SBATCH --job-name=pythia_attn   # Name for your job
+#SBATCH --output=pythia_output_%j.log # Log file for stdout/stderr (%j = Job ID)
 #SBATCH --partition=compute           # The partition is always 'compute'
 #SBATCH --nodes=1                     # Request one node
 #SBATCH --ntasks=1                    # Request one task 
 #SBATCH --cpus-per-task=4             # Request 4 CPUs (always a good practice)
 #SBATCH --mem=32GB                    # Request 16GB of memory
 #SBATCH --gres=gpu:1                  # Request 1 L40 GPU
-#SBATCH --time=22:00:00               # Request 1 hour runtime (format: HH:MM:SS or D-HH:MM:SS)
+#SBATCH --time=24:00:00               # Request 1 hour runtime (format: HH:MM:SS or D-HH:MM:SS)
 
 # --- To use the debug QoS, uncomment the line below ---
 # -- It has a 2-hour time limit and allows max 1 GPU.
