@@ -8,7 +8,7 @@ wandb_run_name: null
 wandb_run_name_prefix: ""
 
 # --- General ---
-output_dir_name: "pythia/attention_patterns/inputs"
+output_dir_name: "pythia/attention_patterns_2/outputs"
 seed: 0
 n_mask_samples: 1
 # ci_config:
@@ -21,13 +21,13 @@ ci_config:
   hidden_dims: [256]
   ci_hooks:
     - pattern: "gpt_neox.layers.*.mlp.dense_h_to_4h"
-      position: input
+      position: output
     - pattern: "gpt_neox.layers.*.mlp.dense_4h_to_h"
-      position: input
+      position: output
     - pattern: "gpt_neox.layers.*.attention.query_key_value"
-      position: input
+      position: output
     - pattern: "gpt_neox.layers.*.attention.dense"
-      position: input
+      position: output
 sampling: continuous
 sigmoid_type: leaky_hard
 
