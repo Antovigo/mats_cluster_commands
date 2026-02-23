@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#SBATCH --job-name=pythia_attn   # Name for your job
-#SBATCH --output=pythia_output_%j.log # Log file for stdout/stderr (%j = Job ID)
+#SBATCH --job-name=gpt2_attn   # Name for your job
+#SBATCH --output=gpt2_attn_%j.log # Log file for stdout/stderr (%j = Job ID)
 #SBATCH --partition=compute           # The partition is always 'compute'
 #SBATCH --nodes=1                     # Request one node
 #SBATCH --ntasks=1                    # Request one task 
@@ -32,7 +32,7 @@ echo
 # echo "GPU info:"
 # nvidia-smi
 
-cd ~/SPD/spd
+cd ~/SPD/spd_alt
 uv run wandb offline
 
 # Pythia transformer training
@@ -49,7 +49,7 @@ uv run wandb offline
 #        /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/pythia_70m_targeted_hooks_output_config.yaml
 
 uv run spd/experiments/lm/lm_decomposition.py \
-       /mnt/nw/home/a.vigouroux/batch_commands/configs/hooks_mlp/ss_gpt2_simple-1L.yaml
+       /mnt/nw/home/a.vigouroux/SPD/batch_commands/configs/ss_gpt2_simple-1L.yaml
 
 # residMLP2 decomposition
 # uv run spd/experiments/resid_mlp/resid_mlp_decomposition.py \

@@ -1,0 +1,17 @@
+seed: 0
+autocast_bf16: false
+---
+seed: 1
+autocast_bf16: false
+---
+seed: 2
+autocast_bf16: false
+---
+seed: 0
+autocast_bf16: true
+---
+seed: 1
+autocast_bf16: true
+---
+seed: 2
+autocast_bf16: true
