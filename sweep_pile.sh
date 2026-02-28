@@ -32,7 +32,7 @@ echo
 # echo "GPU info:"
 # nvidia-smi
 
-cd ~/spd_alt
+cd ~/SPD/spd_alt
 # uv run wandb offline
 
 # Pythia transformer training
