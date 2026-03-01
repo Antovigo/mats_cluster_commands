@@ -62,13 +62,13 @@ loss_metric_configs:
       type: per_batch_per_position
     use_sigmoid_parameterization: false
     n_warmup_steps: 2
+    start_frac: 0.0
 output_loss_type: kl
 
 # --- Training ---
 lr_schedule:
   start_val: 5e-4
   warmup_pct: 0.0
-  fn_type: constant
 steps: 20_000
 batch_size: 256
 eval_batch_size: 256
