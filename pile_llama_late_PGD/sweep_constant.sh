@@ -43,9 +43,9 @@ cd ~/SPD/spd_alt
 
 # Sweep
 uv run spd/scripts/run_variations.py \
-       spd/experiments/lm/lm_decomposition.py \
-       /mnt/nw/home/a.vigouroux/SPD/batch_commands/pile_llama_late_PGD/pile_llama_simple_mlp-4L-targeted.yaml \
-       /mnt/nw/home/a.vigouroux/SPD/batch_commands/pile_llama_late_PGD/experimental_plan.yaml
+  spd/experiments/lm/lm_decomposition.py \
+  /mnt/nw/home/a.vigouroux/SPD/batch_commands/pile_llama_late_PGD/pile_llama_constant.yaml \
+  /mnt/nw/home/a.vigouroux/SPD/batch_commands/pile_llama_late_PGD/experimental_plan.yaml
 
 echo "Job finished at: $(date)"
 
