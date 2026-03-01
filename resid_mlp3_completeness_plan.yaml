@@ -1,0 +1,15 @@
+label: "resid_mlp3_completeness"
+loss_metric_configs.ImportanceMinimalityLoss.coeff: 1e-5
+component_weight_decay: 0
+---
+label: "resid_mlp3_completeness"
+loss_metric_configs.ImportanceMinimalityLoss.coeff: 1e-5
+component_weight_decay: 0.25
+---
+label: "resid_mlp3_completeness"
+loss_metric_configs.ImportanceMinimalityLoss.coeff: 2e-5
+component_weight_decay: 0
+---
+label: "resid_mlp3_completeness"
+loss_metric_configs.ImportanceMinimalityLoss.coeff: 2e-5
+component_weight_decay: 0.25
