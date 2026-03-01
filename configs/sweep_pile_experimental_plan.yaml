@@ -1,7 +1,0 @@
-loss_metric_configs.ImportanceMinimalityLoss.coeff: 1e-4
----
-loss_metric_configs.ImportanceMinimalityLoss.coeff: 2e-4
----
-loss_metric_configs.ImportanceMinimalityLoss.coeff: 4e-4
----
-loss_metric_configs.ImportanceMinimalityLoss.coeff: 8e-4

@@ -1,8 +1,8 @@
 label: pile_llama_late_PGD
-persistent_pgd_configs.PersistentPGDConfig.start_frac: 0.0
+loss_metric_configs.PersistentPGDReconLoss.start_frac: 0.0
 ---
 label: pile_llama_late_PGD
-persistent_pgd_configs.PersistentPGDConfig.start_frac: 0.3
+loss_metric_configs.PersistentPGDReconLoss.start_frac: 0.3
 ---
 label: pile_llama_late_PGD
-persistent_pgd_configs.PersistentPGDConfig.start_frac: 0.6
+loss_metric_configs.PersistentPGDReconLoss.start_frac: 0.6
