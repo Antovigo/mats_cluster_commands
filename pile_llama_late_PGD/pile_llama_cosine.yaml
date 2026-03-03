@@ -8,7 +8,6 @@ notes: "reference model t-9d2b8f02. Uses shuffled dataset."
 
 # --- General ---
 seed: 0
-autocast_bf16: true
 n_mask_samples: 1
 ci_config:
   mode: global
