@@ -1,0 +1,11 @@
+task_config.prompts_file: spd/experiments/lm/prompts/code_syntax_opening.txt
+seed: 1 
+---
+task_config.prompts_file: spd/experiments/lm/prompts/code_syntax_closing.txt
+seed: 2
+---
+task_config.prompts_file: spd/experiments/lm/prompts/code_syntax_opening.txt
+seed: 0 
+---
+task_config.prompts_file: spd/experiments/lm/prompts/code_syntax_closing.txt
+seed: 0
