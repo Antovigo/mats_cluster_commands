@@ -1,0 +1,14 @@
+# Peak 1x (constant coeff), coeff=0.8e-3
+seed: 0
+loss_metric_configs.ImportanceMinimalityLoss.coeff: 0.8e-3
+loss_metric_configs.ImportanceMinimalityLoss.coeff_peak_multiplier: 1.0
+---
+# Peak 1x (constant coeff), coeff=1.2e-3
+seed: 0
+loss_metric_configs.ImportanceMinimalityLoss.coeff: 1.2e-3
+loss_metric_configs.ImportanceMinimalityLoss.coeff_peak_multiplier: 1.0
+---
+# Peak 1x (constant coeff), coeff=1.6e-3
+seed: 0
+loss_metric_configs.ImportanceMinimalityLoss.coeff: 1.6e-3
+loss_metric_configs.ImportanceMinimalityLoss.coeff_peak_multiplier: 1.0

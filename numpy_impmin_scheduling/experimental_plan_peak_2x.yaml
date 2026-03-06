@@ -1,0 +1,14 @@
+# Peak 2x: warmup 0→2x over 0-25%, anneal 2x→1x over 25-90%, constant 1x last 10%. coeff=0.8e-3
+seed: 0
+loss_metric_configs.ImportanceMinimalityLoss.coeff: 0.8e-3
+loss_metric_configs.ImportanceMinimalityLoss.coeff_peak_multiplier: 2.0
+---
+# Peak 2x: warmup 0→2x over 0-25%, anneal 2x→1x over 25-90%, constant 1x last 10%. coeff=1.2e-3
+seed: 0
+loss_metric_configs.ImportanceMinimalityLoss.coeff: 1.2e-3
+loss_metric_configs.ImportanceMinimalityLoss.coeff_peak_multiplier: 2.0
+---
+# Peak 2x: warmup 0→2x over 0-25%, anneal 2x→1x over 25-90%, constant 1x last 10%. coeff=1.6e-3
+seed: 0
+loss_metric_configs.ImportanceMinimalityLoss.coeff: 1.6e-3
+loss_metric_configs.ImportanceMinimalityLoss.coeff_peak_multiplier: 2.0
