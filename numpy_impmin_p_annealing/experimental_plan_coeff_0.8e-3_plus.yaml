@@ -1,0 +1,9 @@
+# P-annealing (2.0→1.0) + impmin peak 1x, coeff=0.8e-3
+seed: 0
+loss_metric_configs.ImportanceMinimalityLoss.coeff: 0.8e-3
+loss_metric_configs.ImportanceMinimalityLoss.coeff_peak_multiplier: 2.0
+---
+# P-annealing (2.0→1.0) + impmin peak 4x, coeff=0.8e-3
+seed: 0
+loss_metric_configs.ImportanceMinimalityLoss.coeff: 0.8e-3
+loss_metric_configs.ImportanceMinimalityLoss.coeff_peak_multiplier: 8.0
