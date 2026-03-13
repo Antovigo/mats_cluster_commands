@@ -23,7 +23,7 @@ cd ~/SPD/spd_alt
 
 uv run python -m spd.scripts.decomposition_stress_test.validate_ablations \
   ~/spd_out/spd/s-2b9c00f0/model_30000.pth \
-  --prompts ~/SPD/spd/spd/experiments/lm/prompts/import_numpy_and_pandas.txt \
+  --prompts ~/SPD/spd_alt/spd/experiments/lm/prompts/import_numpy_and_pandas.txt \
   --n-batches 10 \
   --device cuda
 
