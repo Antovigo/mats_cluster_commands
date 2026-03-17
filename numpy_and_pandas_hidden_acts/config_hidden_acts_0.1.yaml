@@ -4,7 +4,7 @@
 wandb_project: spd
 wandb_run_name: null
 wandb_run_name_prefix: ""
-label: "np_pd_hidden_acts_0.1"
+label: "np_pd_hidden_acts"
 
 # --- General ---
 seed: 0

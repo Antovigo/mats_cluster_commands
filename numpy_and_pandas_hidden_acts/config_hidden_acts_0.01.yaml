@@ -1,5 +1,5 @@
 # pile_llama_simple_mlp 4 layers — targeted decomposition (numpy_and_pandas)
-# Same as numpy_and_pandas but with StochasticHiddenActsReconLoss coeff=0.25
+# Same as numpy_and_pandas but with StochasticHiddenActsReconLoss coeff=0.01
 # --- WandB ---
 wandb_project: spd
 wandb_run_name: null
@@ -67,7 +67,7 @@ loss_metric_configs:
     n_warmup_steps: 2
     start_frac: 0.8
   - classname: StochasticHiddenActsReconLoss
-    coeff: 0.25
+    coeff: 0.01
 output_loss_type: kl
 
 # --- Training ---
