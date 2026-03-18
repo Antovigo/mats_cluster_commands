@@ -74,8 +74,8 @@ lr_schedule:
   final_val_frac: 0.1
   fn_type: cosine
 steps: 30_000
-batch_size: 256
-eval_batch_size: 256
+batch_size: 128
+eval_batch_size: 128
 grad_clip_norm_components: 0.01
 grad_clip_norm_ci_fns: null
 component_weight_decay: 0.1
@@ -147,6 +147,6 @@ nontarget_task_config:
   train_data_split: train
   eval_data_split: val
   dataset_seed: 0
-nontarget_batch_size: 256
-nontarget_eval_batch_size: 256
+nontarget_batch_size: 128
+nontarget_eval_batch_size: 128
 nontarget_impmin_coeff_ratio: 2
