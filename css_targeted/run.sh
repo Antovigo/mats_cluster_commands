@@ -7,7 +7,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=12
 #SBATCH --mem=32GB
-#SBATCH --gres=gpu:3
+#SBATCH --gres=gpu:2
 #SBATCH --time=24:00:00
 
 echo "========================================================"
@@ -23,7 +23,7 @@ cd ~/SPD/spd_alt
 
 uv run python -m torch.distributed.run \
   --standalone \
-  --nproc_per_node 3 \
+  --nproc_per_node 2 \
   spd/experiments/lm/lm_decomposition.py \
   spd/experiments/lm/pile_llama_simple_mlp-4L-targeted-css.yaml
 
