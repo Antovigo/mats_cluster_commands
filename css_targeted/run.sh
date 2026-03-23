@@ -19,7 +19,7 @@ echo "Allocated GPU(s): $CUDA_VISIBLE_DEVICES"
 echo "========================================================"
 echo
 
-cd ~/SPD/spd
+cd ~/SPD/spd_alt
 
 uv run python -m torch.distributed.run \
   --standalone \
