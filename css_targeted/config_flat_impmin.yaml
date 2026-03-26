@@ -47,10 +47,10 @@ loss_metric_configs:
     p_anneal_final_p: 0.4
     p_anneal_end_frac: 1.0
     eps: 1.0e-12
-    coeff_warmup_frac: 0.1
-    coeff_peak_multiplier: 10.0
-    coeff_anneal_start_frac: 0.1
-    coeff_anneal_end_frac: 1.0
+    # coeff_warmup_frac: 0.1
+    # coeff_peak_multiplier: 10.0
+    # coeff_anneal_start_frac: 0.1
+    # coeff_anneal_end_frac: 1.0
   - classname: StochasticReconSubsetLoss
     coeff: 1
     routing:

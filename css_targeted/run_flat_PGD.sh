@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#SBATCH --job-name=css_targeted
-#SBATCH --output=css_targeted_%j.log
+#SBATCH --job-name=css_flat_pgd
+#SBATCH --output=css_flat_pgd_%j.log
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=12
 #SBATCH --mem=32GB
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:1
 #SBATCH --time=24:00:00
 
 echo "========================================================"
@@ -25,9 +25,9 @@ cd ~/SPD/spd_alt
 #   --standalone \
 #   --nproc_per_node 2 \
 #   spd/experiments/lm/lm_decomposition.py \
-#   /mnt/nw/home/a.vigouroux/SPD/batch_commands/css_targeted/config.yaml
+#   /mnt/nw/home/a.vigouroux/SPD/batch_commands/css_targeted/config_flat.yaml
 
 uv run spd/experiments/lm/lm_decomposition.py \ 
-  /mnt/nw/home/a.vigouroux/SPD/batch_commands/css_targeted/config.yaml
+  /mnt/nw/home/a.vigouroux/SPD/batch_commands/css_targeted/config_flat_pgd.yaml
 
 echo "Job finished at: $(date)"
