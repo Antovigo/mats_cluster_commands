@@ -27,7 +27,6 @@ cd ~/SPD/spd_alt
 #   spd/experiments/lm/lm_decomposition.py \
 #   /mnt/nw/home/a.vigouroux/SPD/batch_commands/css_targeted/config_flat.yaml
 
-uv run spd/experiments/lm/lm_decomposition.py \ 
-  /mnt/nw/home/a.vigouroux/SPD/batch_commands/css_targeted/config_flat.yaml
+uv run spd/experiments/lm/lm_decomposition.py /mnt/nw/home/a.vigouroux/SPD/batch_commands/css_targeted/config_flat.yaml
 
 echo "Job finished at: $(date)"
