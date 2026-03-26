@@ -124,6 +124,7 @@ eval_metric_configs:
   #   n_nontarget_examples: 1
   - classname: WeightMagnitude
   - classname: CIHistograms
+    n_batches_accum: 1
   - classname: CIMeanPerComponent
   - classname: ComponentActivationDensity
 
