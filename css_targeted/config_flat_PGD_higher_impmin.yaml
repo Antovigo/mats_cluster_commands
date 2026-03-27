@@ -4,6 +4,7 @@ wandb_project: spd
 wandb_run_name: null
 wandb_run_name_prefix: ""
 label: "targeted_PD_LM_css"
+notes: "impmin 8e-4, matching 35k steps"
 
 # --- General ---
 seed: 0
