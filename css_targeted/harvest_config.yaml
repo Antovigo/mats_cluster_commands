@@ -4,7 +4,7 @@ config:
     wandb_path: goodfire/spd/runs/s-e790005d
   n_batches: 2000
 n_gpus: 8
-partition: h200-reserved
+partition: compute
 time: "12:00:00"
 merge_time: "04:00:00"
 merge_mem: "200G"
