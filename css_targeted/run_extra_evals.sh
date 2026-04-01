@@ -12,11 +12,11 @@ MODEL_PATH=~/Documents/MATS/spd_out/spd/s-e790005d/model_50000.pth
 
 cd ~/Code/SPD/spd
 
-uv run python -m spd.scripts.decomposition_stress_test.recon_distribution "$MODEL_PATH" \
-    --n-batches 20 --batch-size 16
+# uv run python -m spd.scripts.decomposition_stress_test.recon_distribution "$MODEL_PATH" \
+#     --n-batches 512 --batch-size 2
 
-uv run python -m spd.scripts.decomposition_stress_test.per_matrix_recon "$MODEL_PATH" \
-    --n-batches 20 --batch-size 16
+# uv run python -m spd.scripts.decomposition_stress_test.per_matrix_recon "$MODEL_PATH" \
+#     --n-batches 256 --batch-size 2
 
 uv run python -m spd.scripts.decomposition_stress_test.entropy_vs_metrics "$MODEL_PATH" \
-    --n-batches 20 --batch-size 16
+    --n-batches 128 --batch-size 2
