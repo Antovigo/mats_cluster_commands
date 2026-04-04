@@ -19,12 +19,15 @@ echo "Allocated GPU(s): $CUDA_VISIBLE_DEVICES"
 echo "========================================================"
 echo
 
-cd ~/SPD/spd_alt
+cd ~/SPD/spd
 
-uv run python -m torch.distributed.run \
-  --standalone \
-  --nproc_per_node 4 \
-  spd/experiments/lm/lm_decomposition.py \
-  /mnt/nw/home/a.vigouroux/SPD/batch_commands/css_targeted/config_all_layers_strict.yaml
+export TMPDIR=/ephemeral/$USER
+mkdir -p "$TMPDIR"_alt
+
+# uv run python -m torch.distributed.run \
+#   --standalone \
+#   --nproc_per_node 4 \
+#   spd/experiments/lm/lm_decomposition.py \
+#   /mnt/nw/home/a.vigouroux/SPD/batch_commands/css_targeted/config_all_layers_strict.yaml
 
 echo "Job finished at: $(date)"
