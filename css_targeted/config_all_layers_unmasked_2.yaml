@@ -5,7 +5,7 @@ wandb_project: spd
 wandb_run_name: null
 wandb_run_name_prefix: ""
 label: "targeted_PD_LM_css_all_layers"
-notes: "includes unmasked (0.1)"
+notes: "binomial"
 
 # --- General ---
 seed: 0
@@ -42,10 +42,10 @@ use_delta_component: true
 # --- Loss config ---
 loss_metric_configs:
   - classname: ImportanceMinimalityLoss
-    coeff: 5e-4
+    coeff: 2e-4
     pnorm: 2.0
     beta: 0.5
-    p_anneal_start_frac: 0.0
+    p_anneal_start_frac: 0.1
     p_anneal_final_p: 0.4
     p_anneal_end_frac: 1.0
     eps: 1.0e-12
@@ -55,6 +55,7 @@ loss_metric_configs:
     coeff_anneal_end_frac: 1.0
   - classname: StochasticReconSubsetLoss
     coeff: 1
+    sampling: binomial
     routing:
       type: uniform_k_subset
   - classname: PersistentPGDReconLoss
@@ -73,9 +74,9 @@ loss_metric_configs:
       type: per_batch_per_position
     use_sigmoid_parameterization: false
     n_warmup_steps: 2
-    start_frac: 0.2
+    start_frac: 0.25
   - classname: UnmaskedReconLoss
-    coeff: 0.1
+    coeff: 0.25
 output_loss_type: kl
 
 # --- Training ---
