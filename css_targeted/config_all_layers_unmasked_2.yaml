@@ -21,7 +21,7 @@ ci_config:
       n_heads: 4
       max_len: 512
       rope_base: 10000
-sampling: continuous
+sampling: binomial # was continuous
 sigmoid_type: leaky_hard
 module_info:
   - module_pattern: h.*.mlp.c_fc
@@ -55,7 +55,6 @@ loss_metric_configs:
     coeff_anneal_end_frac: 1.0
   - classname: StochasticReconSubsetLoss
     coeff: 1
-    sampling: binomial
     routing:
       type: uniform_k_subset
   - classname: PersistentPGDReconLoss
