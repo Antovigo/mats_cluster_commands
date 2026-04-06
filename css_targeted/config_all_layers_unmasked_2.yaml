@@ -5,7 +5,7 @@ wandb_project: spd
 wandb_run_name: null
 wandb_run_name_prefix: ""
 label: "targeted_PD_LM_css_all_layers"
-notes: "binomial"
+notes: "new version (unmask: 0.2), binomial"
 
 # --- General ---
 seed: 0
@@ -42,7 +42,7 @@ use_delta_component: true
 # --- Loss config ---
 loss_metric_configs:
   - classname: ImportanceMinimalityLoss
-    coeff: 2e-4
+    coeff: 1e-4
     pnorm: 2.0
     beta: 0.5
     p_anneal_start_frac: 0.1
@@ -73,9 +73,9 @@ loss_metric_configs:
       type: per_batch_per_position
     use_sigmoid_parameterization: false
     n_warmup_steps: 2
-    start_frac: 0.25
+    start_frac: 0.2
   - classname: UnmaskedReconLoss
-    coeff: 0.25
+    coeff: 0.2
 output_loss_type: kl
 
 # --- Training ---
