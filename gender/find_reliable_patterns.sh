@@ -24,6 +24,7 @@ cd ~/SPD/spd
 uv run python -m spd.scripts.find_reliable_patterns \
   --config-path spd/experiments/lm/pile_llama_simple_mlp-4L.yaml \
   --tokens he she his her him himself herself \
+  --batch-size 16 \
   --n-batches 200 \
   --thr 0.5 \
   --output /mnt/nw/home/a.vigouroux/SPD/batch_commands/gender/gender_pronouns.tsv
