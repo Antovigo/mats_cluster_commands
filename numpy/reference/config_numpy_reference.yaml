@@ -117,7 +117,7 @@ eval_metric_configs:
     init: random
     step_size: 0.1
     n_steps: 20
-    mask_scope: per_batch_per_position
+    mask_scope: shared_across_batch
   - classname: TargetReconLoss
     rounding_threshold: 0.01
   - classname: NontargetReconLoss
