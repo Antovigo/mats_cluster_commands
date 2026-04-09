@@ -1,11 +1,14 @@
 #!/bin/bash
-#SBATCH --job-name=css-stress-test
-#SBATCH --partition=h200-reserved
-#SBATCH --gpus-per-node=1
+
+#SBATCH --job-name=hybridize
+#SBATCH --output=hybridize_%j.log
+#SBATCH --partition=compute
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=1
-#SBATCH --time=02:00:00
-#SBATCH --output=/mnt/polished-lake/artifacts/mechanisms/spd/slurm_logs/slurm-%j.out
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=12
+#SBATCH --mem=32GB
+#SBATCH --gres=gpu:1
+#SBATCH --time=2:00:00
 
 #MODEL_PATH=~/spd_out/spd/s-e790005d/model_50000.pth
 #MODEL_PATH=~/Documents/MATS/spd_out/spd/s-429ea112/model_50000.pth
