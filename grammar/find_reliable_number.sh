@@ -27,6 +27,6 @@ uv run python -m spd.scripts.find_reliable_patterns \
   --batch-size 16 \
   --n-batches 5000 \
   --thr 0.5 \
-  --output /mnt/nw/home/a.vigouroux/SPD/batch_commands/gender/number_verbs.tsv
+  --output /mnt/nw/home/a.vigouroux/spd_out/data/number_verbs.tsv
 
 echo "Job finished at: $(date)"
