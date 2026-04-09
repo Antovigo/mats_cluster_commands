@@ -11,7 +11,8 @@
 #SBATCH --time=2:00:00
 
 #MODEL_PATH=~/spd_out/spd/s-e790005d/model_50000.pth
-MODEL_PATH=~/spd_out/jose/model_400000.pth
+MODEL_PATH=~/spd_out/spd/s-429ea112/model_50000.pth
+#MODEL_PATH=~/spd_out/jose/model_400000.pth
 
 cd ~/SPD/spd_alt
 
