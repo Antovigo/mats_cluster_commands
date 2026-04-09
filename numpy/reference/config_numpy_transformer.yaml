@@ -66,8 +66,8 @@ loss_metric_configs:
       lr_schedule:
         start_val: 0.01
         warmup_pct: 0.025
-        final_val_frac: 0.1
-        fn_type: cosine
+        final_val_frac: 1
+        fn_type: constant
     scope:
       type: per_batch_per_position
     use_sigmoid_parameterization: false
@@ -121,6 +121,8 @@ eval_metric_configs:
     n_nontarget_examples: 100
   - classname: WeightMagnitude
   # - classname: StochasticHiddenActsReconLoss
+  - classname: UnmaskedReconLoss
+  - classname: CIMeanPerComponent
   - classname: CIHiddenActsReconLoss
   # - classname: StochasticAttnPatternsReconLoss
   #   n_heads: 6
