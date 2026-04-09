@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#SBATCH --job-name=gender_pronouns
-#SBATCH --output=gender_pronouns_%j.log
+#SBATCH --job-name=number
+#SBATCH --output=number_%j.log
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
