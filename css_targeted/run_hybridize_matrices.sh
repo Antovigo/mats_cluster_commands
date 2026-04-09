@@ -17,4 +17,4 @@ MODEL_PATH=~/spd_out/spd/s-429ea112/model_50000.pth
 cd ~/SPD/spd_alt
 
 uv run python -m spd.scripts.decomposition_stress_test.hybridize_matrices "$MODEL_PATH" \
-    --n-batches 64 --batch-size 64 --n-masks 5 --scale log
+    --n-batches 128 --batch-size 32 --n-masks 5 --scale log
