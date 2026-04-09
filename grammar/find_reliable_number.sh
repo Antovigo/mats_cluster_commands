@@ -19,7 +19,7 @@ echo "Allocated GPU(s): $CUDA_VISIBLE_DEVICES"
 echo "========================================================"
 echo
 
-cd ~/SPD/spd
+cd ~/SPD/spd_alt
 
 uv run python -m spd.scripts.find_reliable_patterns \
   --config-path spd/experiments/lm/pile_llama_simple_mlp-4L.yaml \
