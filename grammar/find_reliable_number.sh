@@ -23,10 +23,10 @@ cd ~/SPD/spd
 
 uv run python -m spd.scripts.find_reliable_patterns \
   --config-path spd/experiments/lm/pile_llama_simple_mlp-4L.yaml \
-  --tokens he she his her him himself herself \
+  --tokens am is are do does have has \
   --batch-size 16 \
-  --n-batches 200 \
+  --n-batches 5000 \
   --thr 0.5 \
-  --output /mnt/nw/home/a.vigouroux/SPD/batch_commands/gender/gender_pronouns.tsv
+  --output /mnt/nw/home/a.vigouroux/SPD/batch_commands/gender/number_verbs.tsv
 
 echo "Job finished at: $(date)"
