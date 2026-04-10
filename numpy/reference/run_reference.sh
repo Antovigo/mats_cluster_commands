@@ -22,6 +22,6 @@ echo
 cd ~/SPD/spd
 
 uv run spd/experiments/lm/lm_decomposition.py \
-  /mnt/nw/home/a.vigouroux/SPD/batch_commands/numpy/reference/config_numpy_reference_fullPGD.yaml
+  /mnt/nw/home/a.vigouroux/SPD/batch_commands/numpy/reference/config_numpy_reference_fullPGD_10x.yaml
 
 echo "Job finished at: $(date)"
