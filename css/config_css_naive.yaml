@@ -4,6 +4,7 @@
 wandb_project: spd
 wandb_run_name: null
 wandb_run_name_prefix: ""
+sync_checkpoints_to_wandb: false
 label: "css_naive"
 
 # --- General ---
