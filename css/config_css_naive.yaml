@@ -1,9 +1,10 @@
-# pile_llama_simple_mlp 4 layers — targeted decomposition (CSS code), all layers
+# pile_llama_simple_mlp 4 layers — naive (standard) SPD decomposition on CSS code, no nontarget batch
+# With UnmaskedReconLoss to ensure dead components don't interfere
 # --- WandB ---
 wandb_project: spd
 wandb_run_name: null
 wandb_run_name_prefix: ""
-label: "targeted_PD_LM_css_all_layers"
+label: "css_naive"
 
 # --- General ---
 seed: 0
@@ -17,9 +18,9 @@ ci_config:
     mlp_hidden_dim: [2048]
     attn_config:
       n_heads: 4
-      max_len: 128
+      max_len: 512
       rope_base: 10000
-sampling: continuous
+sampling: binomial # was continuous
 sigmoid_type: leaky_hard
 module_info:
   - module_pattern: h.*.mlp.c_fc
@@ -40,10 +41,10 @@ use_delta_component: true
 # --- Loss config ---
 loss_metric_configs:
   - classname: ImportanceMinimalityLoss
-    coeff: 5e-4
+    coeff: 1e-4
     pnorm: 2.0
     beta: 0.5
-    p_anneal_start_frac: 0.0
+    p_anneal_start_frac: 0.1
     p_anneal_final_p: 0.4
     p_anneal_end_frac: 1.0
     eps: 1.0e-12
@@ -71,7 +72,9 @@ loss_metric_configs:
       type: per_batch_per_position
     use_sigmoid_parameterization: false
     n_warmup_steps: 2
-    start_frac: 0.0
+    start_frac: 0.2
+  - classname: UnmaskedReconLoss
+    coeff: 0.2
 output_loss_type: kl
 
 # --- Training ---
@@ -82,10 +85,8 @@ lr_schedule:
   fn_type: cosine
 steps: 50_000
 
-batch_size: 128
-eval_batch_size: 128
-nontarget_batch_size: 128
-nontarget_eval_batch_size: 128
+batch_size: 64
+eval_batch_size: 64
 
 grad_clip_norm_components: 0.01
 grad_clip_norm_ci_fns: null
@@ -102,7 +103,7 @@ slow_eval_freq: 4000
 n_eval_steps: 10
 slow_eval_on_first_step: true
 save_freq: null
-ci_alive_threshold: 0.0
+ci_alive_threshold: 0.01
 
 # --- Eval Metrics ---
 eval_metric_configs:
@@ -117,11 +118,6 @@ eval_metric_configs:
     mask_scope: shared_across_batch
   - classname: TargetReconLoss
     rounding_threshold: 0.01
-  - classname: NontargetReconLoss
-    rounding_threshold: 0.01
-    n_nontarget_batches: 10
-  # - classname: TargetedCIHeatmap
-  #   n_nontarget_examples: 1
   - classname: WeightMagnitude
   - classname: CIHistograms
     n_batches_accum: 1
@@ -139,22 +135,9 @@ tokenizer_name: EleutherAI/gpt-neox-20b
 task_config:
   task_name: lm
   dataset_name: Antovigo/pile-css-chunks
-  max_seq_len: 128
+  max_seq_len: 512
   column_name: input_ids
   is_tokenized: true
   streaming: false
   train_data_split: train
   eval_data_split: validation
-
-# --- Targeted Decomposition (nontarget data: Pile) ---
-nontarget_task_config:
-  task_name: lm
-  dataset_name: danbraunai/pile-uncopyrighted-tok-shuffled
-  max_seq_len: 128
-  column_name: input_ids
-  is_tokenized: true
-  streaming: true
-  train_data_split: train
-  eval_data_split: val
-  dataset_seed: 0
-nontarget_impmin_coeff_ratio: 1

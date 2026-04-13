@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#SBATCH --job-name=np_pd
-#SBATCH --output=np_pd_%j.log
+#SBATCH --job-name=np_pd_naive
+#SBATCH --output=np_pd_naive_%j.log
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -22,6 +22,6 @@ echo
 cd ~/SPD/spd
 
 uv run spd/experiments/lm/lm_decomposition.py \
-  /mnt/nw/home/a.vigouroux/SPD/batch_commands/numpy/reference/config_numpy_reference_fullPGD_10x.yaml
+  /mnt/nw/home/a.vigouroux/SPD/batch_commands/numpy/reference/config_numpy_reference_naive.yaml
 
 echo "Job finished at: $(date)"

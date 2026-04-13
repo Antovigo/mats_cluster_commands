@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#SBATCH --job-name=css_all_layers_unmasked
-#SBATCH --output=css_all_layers_unmasked_%j.log
+#SBATCH --job-name=css_naive
+#SBATCH --output=css_naive__%j.log
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -19,12 +19,12 @@ echo "Allocated GPU(s): $CUDA_VISIBLE_DEVICES"
 echo "========================================================"
 echo
 
-cd ~/SPD/spd_alt
+cd ~/SPD/spd
 
 uv run python -m torch.distributed.run \
   --standalone \
   --nproc_per_node 4 \
   spd/experiments/lm/lm_decomposition.py \
-  /mnt/nw/home/a.vigouroux/SPD/batch_commands/css_targeted/config_all_layers_binomial.yaml
+  /mnt/nw/home/a.vigouroux/SPD/batch_commands/css/config_css_naive.yaml
 
 echo "Job finished at: $(date)"
