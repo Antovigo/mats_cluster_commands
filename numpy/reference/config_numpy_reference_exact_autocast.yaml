@@ -5,7 +5,6 @@ wandb_run_name: null
 wandb_run_name_prefix: ""
 sync_checkpoints_to_wandb: false
 label: "np_pd_ref_autocast"
-note: "exact"
 
 # --- General ---
 seed: 0
