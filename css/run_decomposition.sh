@@ -25,6 +25,6 @@ uv run python -m torch.distributed.run \
   --standalone \
   --nproc_per_node 4 \
   spd/experiments/lm/lm_decomposition.py \
-  /mnt/nw/home/a.vigouroux/SPD/batch_commands/css/config_css_naive.yaml
+  /mnt/nw/home/a.vigouroux/SPD/batch_commands/css/config_css_alt_seed.yaml
 
 echo "Job finished at: $(date)"

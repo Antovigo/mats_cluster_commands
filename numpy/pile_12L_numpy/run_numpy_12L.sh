@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#SBATCH --job-name=np_pd_12L_s1
-#SBATCH --output=np_pd_12L_s1_%j.log
+#SBATCH --job-name=np_pd_12L
+#SBATCH --output=np_pd_12L_%j.log
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32GB
-#SBATCH --gres=gpu:3
+#SBATCH --gres=gpu:1
 #SBATCH --time=24:00:00
 
 echo "========================================================"
@@ -19,9 +19,9 @@ echo "Allocated GPU(s): $CUDA_VISIBLE_DEVICES"
 echo "========================================================"
 echo
 
-cd ~/SPD/spd_alt
+cd ~/SPD/spd
 
 uv run spd/experiments/lm/lm_decomposition.py \
-  /mnt/nw/home/a.vigouroux/SPD/batch_commands/pile_12L_numpy/config_numpy_and_pandas_seed1.yaml
+  /mnt/nw/home/a.vigouroux/SPD/batch_commands/numpy/pile_12L_numpy/config_numpy_12L_reference.yaml
 
 echo "Job finished at: $(date)"
