@@ -1,7 +1,7 @@
 # Replication of the goodfire best run (see goodfire_best_run_final_config.yaml)
 # --- WandB ---
 wandb_project: spd
-wandb_run_name_prefix: ""
+wandb_run_name_prefix: "full_ha_10x_"
 
 # --- General ---
 seed: 0
@@ -109,6 +109,7 @@ faithfulness_warmup_weight_decay: 0.0
 train_log_freq: 200
 eval_freq: 1000
 slow_eval_freq: 10000
+save_freq: 40000
 n_eval_steps: 1
 slow_eval_on_first_step: true
 ci_alive_threshold: 0.0
