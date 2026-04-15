@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#SBATCH --job-name=np_pd_12L
-#SBATCH --output=np_pd_12L_%j.log
+#SBATCH --job-name=np_pd_12L_alt
+#SBATCH --output=np_pd_12L_alt_%j.log
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
