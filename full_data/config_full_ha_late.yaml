@@ -1,0 +1,162 @@
+# Replication of the goodfire best run (see goodfire_best_run_final_config.yaml)
+# --- WandB ---
+wandb_project: spd
+wandb_run_name_prefix: "full_ha_"
+
+# --- General ---
+seed: 0
+n_mask_samples: 1
+ci_config:
+  mode: global
+  fn_type: global_shared_transformer
+  simple_transformer_ci_cfg:
+    d_model: 2048
+    n_blocks: 8
+    mlp_hidden_dim: [8192]
+    attn_config:
+      n_heads: 16
+      max_len: 512
+      rope_base: 10000.0
+sampling: continuous
+sigmoid_type: leaky_hard
+module_info:
+  - module_pattern: h.0.mlp.c_fc
+    C: 3072
+  - module_pattern: h.0.mlp.down_proj
+    C: 3584
+  - module_pattern: h.1.mlp.c_fc
+    C: 1024
+  - module_pattern: h.1.mlp.down_proj
+    C: 1024
+  - module_pattern: h.2.mlp.c_fc
+    C: 1024
+  - module_pattern: h.2.mlp.down_proj
+    C: 1024
+  - module_pattern: h.3.mlp.c_fc
+    C: 3072
+  - module_pattern: h.3.mlp.down_proj
+    C: 3584
+  - module_pattern: h.*.attn.q_proj
+    C: 512
+  - module_pattern: h.*.attn.k_proj
+    C: 512
+  - module_pattern: h.*.attn.v_proj
+    C: 1024
+  - module_pattern: h.*.attn.o_proj
+    C: 1024
+use_delta_component: true
+
+# --- Loss config ---
+loss_metric_configs:
+  - classname: ImportanceMinimalityLoss
+    coeff: 2.0e-4
+    pnorm: 2.0
+    beta: 0.5
+    p_anneal_start_frac: 0.0
+    p_anneal_final_p: 0.4
+    p_anneal_end_frac: 1.0
+    eps: 1.0e-12
+  - classname: StochasticReconSubsetLoss
+    coeff: 0.5
+    routing:
+      type: uniform_k_subset
+  - classname: PersistentPGDReconLoss
+    coeff: 0.5
+    optimizer:
+      type: adam
+      beta1: 0.5
+      beta2: 0.99
+      eps: 1.0e-08
+      lr_schedule:
+        start_val: 0.01
+        warmup_pct: 0.025
+        final_val_frac: 1.0
+        fn_type: constant
+    scope:
+      type: per_batch_per_position
+    use_sigmoid_parameterization: false
+    n_warmup_steps: 2
+    start_frac: 0.1
+  - classname: FaithfulnessLoss
+    coeff: 1.0e7
+  - classname: StochasticHiddenActsReconLoss
+    coeff: 0.001
+output_loss_type: kl
+
+# --- Training ---
+lr_schedule:
+  start_val: 5.0e-5
+  warmup_pct: 0.0
+  final_val_frac: 0.1
+  fn_type: cosine
+steps: 400_000
+
+batch_size: 64
+eval_batch_size: 128
+
+grad_clip_norm_components: 0.01
+autocast_bf16: true
+
+# --- Faithfulness Warmup ---
+faithfulness_warmup_steps: 400
+faithfulness_warmup_lr: 0.001
+faithfulness_warmup_weight_decay: 0.0
+
+# --- Logging & Saving ---
+train_log_freq: 200
+eval_freq: 1000
+slow_eval_freq: 10000
+save_freq: 100000
+n_eval_steps: 1
+slow_eval_on_first_step: true
+ci_alive_threshold: 0.0
+
+# --- Eval Metrics ---
+eval_metric_configs:
+  - classname: CIHistograms
+    n_batches_accum: 1
+  - classname: ComponentActivationDensity
+  - classname: CI_L0
+    groups:
+      layer_0:
+        - "h.0.*"
+      layer_1:
+        - "h.1.*"
+      layer_2:
+        - "h.2.*"
+      layer_3:
+        - "h.3.*"
+      total:
+        - "*"
+  - classname: CEandKLLosses
+    rounding_threshold: 0.0
+  - classname: CIMeanPerComponent
+  - classname: StochasticHiddenActsReconLoss
+    coeff: null
+  - classname: CIHiddenActsReconLoss
+  - classname: PGDReconLoss
+    coeff: null
+    init: random
+    step_size: 0.1
+    n_steps: 20
+    mask_scope: shared_across_batch
+
+# --- Pretrained model info ---
+pretrained_model_class: spd.pretrain.models.llama_simple_mlp.LlamaSimpleMLP
+pretrained_model_name: goodfire/spd/runs/t-9d2b8f02
+pretrained_model_output_attr: idx_0
+tokenizer_name: EleutherAI/gpt-neox-20b
+
+# --- Task ---
+task_config:
+  task_name: lm
+  max_seq_len: 512
+  buffer_size: 1000
+  dataset_name: danbraunai/pile-uncopyrighted-tok-shuffled
+  column_name: input_ids
+  train_data_split: train
+  eval_data_split: val
+  shuffle_each_epoch: true
+  is_tokenized: true
+  streaming: true
+  dataset_seed: 0
