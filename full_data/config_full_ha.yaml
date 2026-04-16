@@ -105,7 +105,7 @@ faithfulness_warmup_weight_decay: 0.0
 train_log_freq: 200
 eval_freq: 1000
 slow_eval_freq: 10000
-save_freq: 40000
+save_freq: 100000
 n_eval_steps: 1
 slow_eval_on_first_step: true
 ci_alive_threshold: 0.0
