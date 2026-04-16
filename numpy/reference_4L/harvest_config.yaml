@@ -1,7 +1,7 @@
 config:
   method_config:
     type: SPDHarvestConfig
-    wandb_path: /mnt/nw/home/a.vigouroux/spd_out/spd/s-0c454b30
+    wandb_path: antvig-pibbss/spd/runs/s-0c454b30
   n_batches: 2000
 n_gpus: 1
 partition: compute
