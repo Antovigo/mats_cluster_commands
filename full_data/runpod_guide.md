@@ -43,14 +43,24 @@ Trade-off of a pod volume (vs a network volume): if the pod is **terminated** (n
 ## 3. Connect
 
 ```bash
-ssh root@<pod-ip> -p <pod-port> -i ~/.ssh/runpod_key
+ssh root@<pod-ip> -p <pod-port> -i ~/.ssh/id_ed25519
 ```
 
 Open a `tmux` session immediately so the job survives disconnects:
 
+```
+apt-get install -y tmux                                                                         `````
+
 ```bash
 tmux new -s spd
 ```
+
+How to disconnect:
+Ctrl+B  D            # detach, close browser, go to bed
+
+# next morning, on a fresh browser:
+tmux attach -t spd   # see current loss, GPU utilization
+Ctrl+B  D            # detach again
 
 Verify:
 
@@ -100,6 +110,19 @@ For HuggingFace (public datasets don't strictly need it, but login avoids rate-l
 huggingface-cli login     # paste your HF token
 ```
 
+Log in to wandb (from the /workspace/spd folder):
+
+```
+uv run python -c "
+import wandb
+api = wandb.Api()
+run = api.run('goodfire/spd/t-9d2b8f02')
+print(run.name, run.state)
+for f in run.files():
+print(f.name, f.size)
+"
+```
+
 ## 7. Copy the configs
 
 ```bash
@@ -131,7 +154,7 @@ uv run python -m torch.distributed.run \
   --standalone \
   --nproc_per_node 8 \
   spd/experiments/lm/lm_decomposition.py \
-  /workspace/configs/config_full_ha.yaml \
+  /workspace/configs/config_full_ha_10x.yaml \
   2>&1 | tee /workspace/run.log
 ```
 
@@ -157,6 +180,11 @@ Since there's no network volume, a pod termination would wipe everything in `/wo
      ~/spd_backup/<run_id>/
    ```
    Re-run every few hours (or throw it in a loop).
+
+If needed, install rsync on the pod:
+```
+apt-get install -y rsync
+```
 
 ## 12. Recovery if the pod dies
 
