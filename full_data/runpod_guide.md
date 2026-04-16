@@ -58,7 +58,7 @@ tmux new -s spd
 How to disconnect:
 Ctrl+B  D            # detach, close browser, go to bed
 
-# next morning, on a fresh browser:
+Next morning, on a fresh browser:
 tmux attach -t spd   # see current loss, GPU utilization
 Ctrl+B  D            # detach again
 
