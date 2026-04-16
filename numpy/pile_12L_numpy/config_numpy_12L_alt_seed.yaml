@@ -6,7 +6,7 @@ wandb_run_name_prefix: ""
 label: "pile_12L_numpy"
 
 # --- General ---
-seed: 0
+seed: 1
 n_mask_samples: 1
 ci_config:
   mode: global
@@ -114,6 +114,7 @@ eval_metric_configs:
   - classname: WeightMagnitude
   # - classname: StochasticHiddenActsReconLoss
   - classname: CIHiddenActsReconLoss
+  - classname: UnmaskedReconLoss
   # - classname: StochasticAttnPatternsReconLoss
   #   n_heads: 6
   #   q_proj_path: "h.*.attn.q_proj"
