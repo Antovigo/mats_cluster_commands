@@ -22,6 +22,6 @@ echo
 cd ~/SPD/spd
 
 uv run spd/experiments/lm/lm_decomposition.py \
-  /mnt/nw/home/a.vigouroux/SPD/batch_commands/numpy/pile_12L_numpy/config_numpy_12L_earlier.yaml
+  /mnt/nw/home/a.vigouroux/SPD/batch_commands/numpy/reference_12L/config_numpy_12L_earlier.yaml
 
 echo "Job finished at: $(date)"
