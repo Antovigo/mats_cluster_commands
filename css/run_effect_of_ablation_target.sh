@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#SBATCH --job-name=css_eoa_nontarget
-#SBATCH --output=css_eoa_nontarget_%j.log
+#SBATCH --job-name=css_eoa_target
+#SBATCH --output=css_eoa_target_%j.log
 #SBATCH --partition=compute
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
@@ -26,7 +26,7 @@ cd ~/SPD/spd
 
 uv run python -m spd.scripts.validation.effect_of_ablation \
     "$MODEL_PATH_CSS" "$RUN_DIR_CSS/alive_components.tsv" \
-    --nontarget --summary-only --n-batches=10 --quantile=0.9 \
+    --summary-only --n-batches=10 --quantile=0.9 \
     --batch-size=32 --checkpoint-every=1
 
 echo "Job finished at: $(date)"
