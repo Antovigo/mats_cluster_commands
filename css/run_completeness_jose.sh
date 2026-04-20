@@ -26,6 +26,6 @@ cd ~/SPD/spd
 
 uv run python -m spd.scripts.validation.completeness \
     "$MODEL_PATH_JOSE" "$RUN_DIR_JOSE/alive_components.tsv" \
-    --split=train --n-batches=8 --batch-size=8
+    --split=train --n-batches=10 --batch-size=8 --ci-threshold=0.1
 
 echo "Job finished at: $(date)"
