@@ -1,0 +1,59 @@
+wandb_run_name_prefix: "feat000-004_"
+task_config.active_indices: [0, 1, 2, 3, 4]
+---
+wandb_run_name_prefix: "feat005-009_"
+task_config.active_indices: [5, 6, 7, 8, 9]
+---
+wandb_run_name_prefix: "feat010-014_"
+task_config.active_indices: [10, 11, 12, 13, 14]
+---
+wandb_run_name_prefix: "feat015-019_"
+task_config.active_indices: [15, 16, 17, 18, 19]
+---
+wandb_run_name_prefix: "feat020-024_"
+task_config.active_indices: [20, 21, 22, 23, 24]
+---
+wandb_run_name_prefix: "feat025-029_"
+task_config.active_indices: [25, 26, 27, 28, 29]
+---
+wandb_run_name_prefix: "feat030-034_"
+task_config.active_indices: [30, 31, 32, 33, 34]
+---
+wandb_run_name_prefix: "feat035-039_"
+task_config.active_indices: [35, 36, 37, 38, 39]
+---
+wandb_run_name_prefix: "feat040-044_"
+task_config.active_indices: [40, 41, 42, 43, 44]
+---
+wandb_run_name_prefix: "feat045-049_"
+task_config.active_indices: [45, 46, 47, 48, 49]
+---
+wandb_run_name_prefix: "feat050-054_"
+task_config.active_indices: [50, 51, 52, 53, 54]
+---
+wandb_run_name_prefix: "feat055-059_"
+task_config.active_indices: [55, 56, 57, 58, 59]
+---
+wandb_run_name_prefix: "feat060-064_"
+task_config.active_indices: [60, 61, 62, 63, 64]
+---
+wandb_run_name_prefix: "feat065-069_"
+task_config.active_indices: [65, 66, 67, 68, 69]
+---
+wandb_run_name_prefix: "feat070-074_"
+task_config.active_indices: [70, 71, 72, 73, 74]
+---
+wandb_run_name_prefix: "feat075-079_"
+task_config.active_indices: [75, 76, 77, 78, 79]
+---
+wandb_run_name_prefix: "feat080-084_"
+task_config.active_indices: [80, 81, 82, 83, 84]
+---
+wandb_run_name_prefix: "feat085-089_"
+task_config.active_indices: [85, 86, 87, 88, 89]
+---
+wandb_run_name_prefix: "feat090-094_"
+task_config.active_indices: [90, 91, 92, 93, 94]
+---
+wandb_run_name_prefix: "feat095-099_"
+task_config.active_indices: [95, 96, 97, 98, 99]
