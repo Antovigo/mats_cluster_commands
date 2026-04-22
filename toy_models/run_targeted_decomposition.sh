@@ -21,6 +21,9 @@ echo
 
 cd ~/SPD/spd
 
+export WANDB_MODE=offline
+export SPD_OUT_DIR=~/spd_out/spd/resid_mlp3
+
 uv run python -m spd.scripts.run_variations \
   spd/experiments/resid_mlp/resid_mlp_decomposition.py \
   /mnt/nw/home/a.vigouroux/SPD/batch_commands/toy_models/resid_mlp3-targeted_config.yaml \
