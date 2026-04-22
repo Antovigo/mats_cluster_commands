@@ -22,7 +22,7 @@ echo
 cd ~/SPD/spd
 
 export WANDB_MODE=offline
-export SPD_OUT_DIR=~/spd_out/spd/resid_mlp3
+export SPD_OUT_DIR=/mnt/nw/home/a.vigouroux/spd_out/spd/resid_mlp3
 
 uv run python -m spd.scripts.run_variations \
   spd/experiments/resid_mlp/resid_mlp_decomposition.py \
